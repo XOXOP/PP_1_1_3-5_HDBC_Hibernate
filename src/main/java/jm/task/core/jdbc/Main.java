@@ -1,27 +1,35 @@
 package jm.task.core.jdbc;
 
+import jm.task.core.jdbc.dao.UserDaoHibernateImpl;
 import jm.task.core.jdbc.service.UserService;
 import jm.task.core.jdbc.service.UserServiceImpl;
-import jm.task.core.jdbc.util.Util;
-
-import java.sql.*;
 
 public class Main {
 
     private static UserService userServis = new UserServiceImpl();
 
     public static void main(String[] args) {
-        // реализуйте алгоритм
-        userServis.createUsersTable();
-        userServis.saveUser("Дэн", "Сяопин", (byte) 73);
-        userServis.saveUser("Дэн", "Браун", (byte) 53);
-        userServis.saveUser("Мао", "Дзэдун", (byte) 93);
-        userServis.saveUser("Бен", "Ладен", (byte) 63);
+        //UserDaoHibernateImpl userDaoHibernate = new UserDaoHibernateImpl();
+         UserService userService = new UserServiceImpl();
 
-        userServis.removeUserById(4);
-        userServis.getAllUsers();
-        userServis.dropUsersTable();
-        userServis.cleanUsersTable();
+
+
+        // реализуйте алгоритм
+
+        userService.createUsersTable();
+        userService.saveUser("Дэн", "Сяопин", (byte) 73);
+        userService.saveUser("Дэн", "Браун", (byte) 53);
+        userService.saveUser("Мао", "Дзэдун", (byte) 93);
+        userService.saveUser("Бен", "Ладен", (byte) 63);
+
+        userService.removeUserById(4);
+        userService.getAllUsers();
+
+
+        userService.cleanUsersTable();
+        userService.dropUsersTable();
+
+
     }
 }
 

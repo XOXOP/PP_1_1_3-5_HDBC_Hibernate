@@ -88,12 +88,12 @@ public class UserDaoHibernateImpl implements UserDao {
     @Override
     public void removeUserById(long id) {
 
-        String sql = "delete from Users where id= :id";
+        // String sql = "delete from Users where id= :id";
         Transaction tran = null;
         try(
                 Session session = jm.task.core.jdbc.util.Util.getSessionFactory().openSession()) {
             tran = session.beginTransaction();
-            Query query = session.createSQLQuery(sql);
+            Query query = session.createNativeQuery("DELETE FROM Users WHERE id = :id");
             query.setLong("id", id);
             query.executeUpdate();
             tran.commit();
@@ -127,8 +127,6 @@ public class UserDaoHibernateImpl implements UserDao {
         try (
                 Session session = Util.getSessionFactory().openSession()) {
             tran = session.beginTransaction();
-            //Session session = sessionFactory.openSession();
-            //  session.beginTransaction();
             Query query = session.createSQLQuery(sql);
             query.executeUpdate();
 

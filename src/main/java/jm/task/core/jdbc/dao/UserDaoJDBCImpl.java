@@ -1,6 +1,5 @@
 package jm.task.core.jdbc.dao;
 
-import jm.task.core.jdbc.Main;
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.util.Util;
 
@@ -9,8 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDaoJDBCImpl implements UserDao  {
-
-    //Util util = new Util();
 
 
         Connection    connection;
@@ -46,7 +43,6 @@ public class UserDaoJDBCImpl implements UserDao  {
 
                 String query = "INSERT INTO  Users(name, lastName,age) VALUES (?, ?, ?)";
                 try(PreparedStatement preparedStatement = connection.prepareStatement(query)){
-                    //preparedStatement.setLong(1, id);
                     preparedStatement.setString(1, name);
                     preparedStatement.setString(2, lastName);
                     preparedStatement.setByte(3, age);

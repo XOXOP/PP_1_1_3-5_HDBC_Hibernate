@@ -13,11 +13,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
-//import static jdk.internal.net.http.HttpConnection.getConnection;
+
 
 public  class Util {
-
-
 
     private Util(){ };
     private static  Connection connection= null;
@@ -26,8 +24,6 @@ public  class Util {
     private static final String connectionUrl = "jdbc:mysql://localhost:3306/new_schema_hdbc?serverTimezone=Europe/Moscow&useSSL=false";
 
     public static Connection getConnection() throws ClassNotFoundException {
-        // реализуйте настройку соеденения с БД
-
 
         try {Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(connectionUrl, UserName, password);
@@ -42,7 +38,6 @@ public  class Util {
 
 
     private static SessionFactory sessionFactory ;
-
 
 
     public static SessionFactory getSessionFactory(){
@@ -75,9 +70,7 @@ public  class Util {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            //finally {
-               // sessionFactory.close();
-           // }
+
         }
         return sessionFactory;
     }

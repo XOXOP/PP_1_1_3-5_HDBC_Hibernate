@@ -9,12 +9,8 @@ public class Main {
     private static UserService userServis = new UserServiceImpl();
 
     public static void main(String[] args) {
-        //UserDaoHibernateImpl userDaoHibernate = new UserDaoHibernateImpl();
          UserService userService = new UserServiceImpl();
 
-
-
-        // реализуйте алгоритм
 
         userService.createUsersTable();
         userService.saveUser("Дэн", "Сяопин", (byte) 73);
